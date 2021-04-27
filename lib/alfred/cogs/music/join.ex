@@ -1,4 +1,4 @@
-defmodule Alfred.Cogs.Voice.Join do
+defmodule Alfred.Cogs.Music.Join do
 
     @behaviour Nosedrum.Command
 

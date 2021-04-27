@@ -1,8 +1,7 @@
-defmodule Alfred.Cogs.Voice.Leave do
+defmodule Alfred.Cogs.Music.Leave do
 
     @behaviour Nosedrum.Command
 
-    alias Nostrum.Api
     alias Nostrum.Voice
 
     @impl true

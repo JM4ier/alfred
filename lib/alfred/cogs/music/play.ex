@@ -1,4 +1,4 @@
-defmodule Alfred.Cogs.Voice.Play do
+defmodule Alfred.Cogs.Music.Play do
 
     @behaviour Nosedrum.Command
 

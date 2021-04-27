@@ -8,15 +8,15 @@ defmodule Alfred.Consumer.Ready do
         "help" => Cogs.Help,
         "crash" => Cogs.Crash,
         "ping" => Cogs.Ping,
-        "join" => Cogs.Voice.Join,
-        "leave" => Cogs.Voice.Leave,
-        "play" => Cogs.Voice.Play,
-        "skip" => Cogs.Voice.Skip,
-        "queue" => Cogs.Voice.Queue,
+        "join" => Cogs.Music.Join,
+        "leave" => Cogs.Music.Leave,
+        "play" => Cogs.Music.Play,
+        "skip" => Cogs.Music.Skip,
+        "queue" => Cogs.Music.Queue,
     }
 
     @spec handle(map()) :: :ok
-    def handle(data) do
+    def handle(_data) do
         :ok = load_commands()
         :ok = Api.update_status(:online, "you", 3)
     end
