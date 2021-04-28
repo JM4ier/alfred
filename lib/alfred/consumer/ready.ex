@@ -12,6 +12,7 @@ defmodule Alfred.Consumer.Ready do
         "leave" => Cogs.Music.Leave,
         "play" => Cogs.Music.Play,
         "skip" => Cogs.Music.Skip,
+        "clear" => Cogs.Music.Clear,
         "queue" => Cogs.Music.Queue,
     }
 

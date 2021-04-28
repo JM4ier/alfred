@@ -28,14 +28,22 @@ defmodule Alfred.Services.Music.Dj do
         end
     end
 
-    @impl true
     def handle_cast({:shuffle, gid}, gr) do
         queue_send_signal(gr, gid, &Queue.shuffle/1)
     end
 
-    @impl true
     def handle_cast({:clear, gid}, gr) do
         queue_send_signal(gr, gid, &Queue.clear/1)
+    end
+
+    @impl true
+    def handle_call({:list, gid}, _from, {guilds, refs}) do
+        if Map.has_key?(guilds, gid) do
+            q = Map.fetch!(guilds, gid)
+            {:reply, Queue.list(q), {guilds, refs}}
+        else
+            {:reply, [], {guilds, refs}}
+        end
     end
 
     defp queue_send_signal({guilds, refs}, gid, fun) do
@@ -67,6 +75,7 @@ defmodule Alfred.Services.Music.Dj do
     def play(gid, song), do: GenServer.cast(Dj, {:play, gid, song})
     def shuffle(gid), do: GenServer.cast(Dj, {:shuffle, gid})
     def clear(gid), do: GenServer.cast(Dj, {:clear, gid})
+    def list(gid), do: GenServer.call(Dj, {:list, gid})
         
 
 end

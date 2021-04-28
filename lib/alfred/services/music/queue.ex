@@ -26,7 +26,7 @@ defmodule Alfred.Services.Music.Queue do
     end
 
     def clear(queue) do
-        Agent.update(queue, fn -> [] end)
+        Agent.update(queue, fn _ -> [] end)
     end
 
 end
