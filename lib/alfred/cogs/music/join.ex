@@ -5,6 +5,7 @@ defmodule Alfred.Cogs.Music.Join do
     alias Nostrum.Api
     alias Nostrum.Cache.GuildCache
     alias Nostrum.Voice
+    alias Alfred.Predicates
 
     @impl true
     def usage, do: ["join"]
@@ -17,7 +18,7 @@ defmodule Alfred.Cogs.Music.Join do
         """
 
     @impl true
-    def predicates, do: []
+    def predicates, do: [&Predicates.same_vc/1]
 
     defp get_voice_channel_of_msg(msg) do
            msg.guild_id

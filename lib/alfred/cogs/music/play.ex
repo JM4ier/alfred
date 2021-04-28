@@ -4,9 +4,10 @@ defmodule Alfred.Cogs.Music.Play do
 
     alias Nostrum.Api
     alias Nostrum.Voice
+    alias Alfred.Predicates
 
     @impl true
-    def predicates, do: []
+    def predicates, do: [&Predicates.same_vc/1]
 
     @impl true
     def usage, do: ["play https://youtu.be/dQw4w9WgXcQ"]

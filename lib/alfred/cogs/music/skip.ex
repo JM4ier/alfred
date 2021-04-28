@@ -4,6 +4,7 @@ defmodule Alfred.Cogs.Music.Skip do
 
     alias Nostrum.Api
     alias Nostrum.Voice
+    alias Alfred.Predicates
 
     @impl true
     def description,
@@ -15,7 +16,7 @@ defmodule Alfred.Cogs.Music.Skip do
     def usage, do: ["skip"]
 
     @impl true
-    def predicates, do: []
+    def predicates, do: [&Predicates.same_vc/1]
 
     @impl true
     def command(msg, _args) when msg.author.id == 155419933998579713 do

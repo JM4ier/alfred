@@ -3,6 +3,7 @@ defmodule Alfred.Cogs.Music.Leave do
     @behaviour Nosedrum.Command
 
     alias Nostrum.Voice
+    alias Alfred.Predicates
 
     @impl true
     def description,
@@ -15,7 +16,7 @@ defmodule Alfred.Cogs.Music.Leave do
     def usage, do: ["leave"]
 
     @impl true
-    def predicates, do: []
+    def predicates, do: [&Predicates.same_vc/1]
 
     @impl true
     def command(msg, _args) do
